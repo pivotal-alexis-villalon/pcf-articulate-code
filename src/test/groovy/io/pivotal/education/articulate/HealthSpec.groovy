@@ -29,8 +29,7 @@ class HealthSpec extends Specification {
     def response = client.newCall(request).execute()
     def text = response.body().string()
     */
-    def text = "{"name": "value"}"
-    def json = parser.parseText(text)
+    def json = parser.parseText('{ "name": "John Doe" } /* some comment */')
 
     then:
     json.status == "UP"
